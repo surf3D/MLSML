@@ -1,0 +1,7 @@
+Comparison of Kernels Based on Accuracy (online info):
+Kernel	        Smoothness	       Gradient Accuracy   Error Reduction  Particle Distribution  Overall Accuracy
+Gaussian	Very smooth	        High	              Moderate	         Poor 	              Moderate
+Cubic Spline	Moderate smoothness	Moderate	      Moderate	         Good	              Good
+Wendland C2	High smoothness		High	              High               Excellent	      Excellent
+Quintic Spline	Very high smoothness	Very high	      Very high	         Good	              Excellent
+
