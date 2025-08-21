@@ -1,0 +1,16 @@
+The current purpose is to train the weight function defined by splines on fixed knots between [0, 2] 
+to improve accuracy of MLS solution.
+
+The problem picked for this purpose is the Poisson equation on a unit circle.
+
+Functions and their purposes:
+0). NNDriver.py                                    -> the driver of this ML problem (to be coded).
+1). ResidueMinimizing.py                           -> to optimize residue between MLS solution and exact solution.
+2). MLSResidue.py                                  -> to provide residue- difference between MLS solution and exact. 
+3). PoissonSourceFunction.py                       -> the right hand side of Poisson equation.
+4). PoissonAnalyticalSolution.py                   -> analytical solution (when provided).
+5). MLS_Poisson_solver_2D_with_weight_Laplacian.py -> MLS solution of the Poisson equation given weight function.
+6). Poisson_circle_Green_function.py               -> "Exact" solution from integration of the Green's function.
+7). quintic_spline_new.py                          -> The fifth order spline method.
+8). weight_functions.py                            -> weight function defined by spline.
+9). optimize_driver.py                             -> caller of "ResidueMinimizing.py".
