@@ -1,7 +1,7 @@
 import numpy as np
 import mls_poisson_solution
 import Poisson_circle_Green_function
-import create_data_points
+from create_data_points import create_data_points
 from scipy.interpolate import make_interp_spline
 
 def weight_function(y, r):
@@ -22,7 +22,7 @@ def MLSResidue(y, source, ds):
     # get the MLS solution
     u_mls = mls_poisson_solution.mls_poisson_solution(all_nodes, boundary_nodes, interior_nodes, \
                                                       source, weight_function, ds)
-    u_ex  = u = Poisson_circle_Green_function.poisson_solution_on_disk_nodes(source, all_nodes)
+    u_ex  = Poisson_circle_Green_function.poisson_solution_on_disk_nodes(source, all_nodes)
     error = u_mls - u_ex
     L2_error = np.sqrt(np.sum(error**2))
     return L2_error

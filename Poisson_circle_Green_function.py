@@ -1,10 +1,16 @@
 import numpy as np
+import pdb
 
 def greens_function(r, theta, rp, thetap):
     delta_theta = theta - thetap
     A = r**2 + rp**2 - 2 * r * rp * np.cos(delta_theta)
     B = 1 - 2 * r * rp * np.cos(delta_theta) + (r * rp)**2
-    G = -1/(4 * np.pi) * (np.log(A) - np.log(B))
+    term = np.zeros_like(A)  # initialize with zeros
+    mask = np.abs(B) > 1e-12
+    term[mask] = np.log(A[mask] / B[mask])
+   
+    #pdb.set_trace()
+    G = -1/(4 * np.pi) * term
     return G
 
 def poisson_solution_on_disk_nodes(source_func, nodes, Nr=50, Ntheta=100):

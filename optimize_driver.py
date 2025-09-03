@@ -14,7 +14,7 @@ def main():
     y_solution = ResidueMinimizing.ResidueMinimize(source, ds)
     
     # Output the solution
-    print("The solution y is:", y_solution.x)
+    print("The solution y is:", y_solution)
 
 if __name__ == "__main__":
     main()

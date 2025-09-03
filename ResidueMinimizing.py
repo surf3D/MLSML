@@ -1,14 +1,15 @@
 import numpy as np
-import MLSResidue
+from MLSResidue import MLSResidue
 from scipy.optimize import minimize
 
-def MLSResidue_with_ds(y):
+def MLSResidue_with_ds(y, source, ds):
     return MLSResidue(y, source, ds)
 
 def ResidueMinimize(source, ds):
 
     N = 4  # Example value
-
+    print(" N = ", N)
+    
     # Initial guess
     y0 = np.random.rand(N+1)
 
@@ -33,7 +34,7 @@ def ResidueMinimize(source, ds):
     # Optional: bounds for non-negativity
     bounds = [(0, None)] * (N+1)
 
-    result = minimize(MLSResidue_with_ds, y0, bounds=bounds, constraints=constraints)
+    result = minimize(MLSResidue_with_ds, y0, args=(source, ds), bounds=bounds, constraints=constraints)
 
     optimal_y = result.x
 
